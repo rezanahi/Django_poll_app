@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slide Navbar</title>
+	<link rel="stylesheet" type="text/css" href={% static 'account/Register.css' %}>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="main">
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form method="post">
+                    {% csrf_token %}
+					<label for="chk" aria-hidden="true">Sign up</label>
+					{{ form.username }}
+					{{ form.email }}
+					{{ form.password }}
+                    {{ form.errors }}
+					<button>Sign up</button>
+				</form>
+			</div>
+
+			<div class="login">
+				<a href="{% url 'account:login' %}">
+                    <label style="color: #573b8a; font-size: 2em; justify-content: center; display: flex; margin: -2px; font-weight: bold; cursor: pointer;">Login</label>
+                </a>
+			</div>
+	</div>
+</body>
+</html>
